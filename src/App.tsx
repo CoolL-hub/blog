@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { routeTree } from "./routeTree.gen";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
 
-import Home from "./pages/Home/Home";
+import "./assets/css/App.scss";
 
-import "./assets/css/App.css";
-import Timer from "./ui/Timer/Timer";
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
-  return (
-    <>
-      <Home />
-      <h1>Vite + React</h1>
-      <Timer />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
