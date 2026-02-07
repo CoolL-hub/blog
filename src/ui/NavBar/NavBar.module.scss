@@ -1,0 +1,12 @@
+.navBar {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 2rem 0;
+
+    & .navItem {
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}

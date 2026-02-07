@@ -1,0 +1,23 @@
+{
+    "arrowParens": "always",
+    "semi": true,
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "parser": "typescript",
+    "singleAttributePerLine": false,
+    "tabWidth": 2,
+    "importOrder": [
+        "^react",
+        "^@app/",
+        "pages",
+        "^@src/",
+        "ui",
+        "^.+\\.tsx$",
+        "^.+\\.(png|jpe?g|gif|svg)$",
+        "^.+\\.s?css$"
+    ],
+    "importOrderSortSpecifiers": true,
+    "importOrderSeparation": true,
+    "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
