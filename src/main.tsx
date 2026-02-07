@@ -1,12 +1,18 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+// Import the generated route tree
+import App from "./App";
 
-import App from "./App.tsx";
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 
 import "./assets/css/index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+// Render the app
+const rootElement = document.getElementById("root")!;
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  );
+}
