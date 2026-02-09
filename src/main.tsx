@@ -1,9 +1,8 @@
 // Import the generated route tree
-import App from "./App";
-
-import { StrictMode } from "react";
+import { Profiler, StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
+import App from "./App";
 import "./assets/css/index.css";
 
 // Render the app
@@ -12,7 +11,9 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <App />
+      <Profiler id="main" onRender={() => {}}>
+        <App />
+      </Profiler>
     </StrictMode>,
   );
 }

@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type CountdownState = "stop" | "pause" | "count" | "done";
 
 export function useCountdown(waitForS: number) {
   const [seconds, set_seconds] = useState<number>(waitForS);
-  const [state, set_state] = useState<CountdownState>("count");
+  const [state, set_state] = useState<CountdownState>("pause");
   const [startTime, set_startTime] = useState<number>(new Date().getTime());
 
   const intervalRef = useRef<number | null>(null);
 
-  function done() {
+  const done = useCallback(() => {
     if (state === "done") return;
 
     set_state("done");
-  }
+  }, [state]);
 
   function start() {
     if (seconds <= 0 || state === "count") {
@@ -50,8 +50,6 @@ export function useCountdown(waitForS: number) {
     }
 
     intervalRef.current = window.setInterval(() => {
-      console.log("update");
-
       const timeRemain = Math.max(
         0,
         (startTime - Date.now()) / 1000 + waitForS,
@@ -70,7 +68,7 @@ export function useCountdown(waitForS: number) {
         intervalRef.current = null;
       }
     };
-  }, [state, startTime, waitForS]);
+  }, [state, startTime, waitForS, done]);
 
   return {
     seconds,

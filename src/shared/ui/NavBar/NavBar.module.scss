@@ -6,7 +6,11 @@
 
     & .navItem {
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 400;
         cursor: pointer;
+
+        &[data-status="active"] {
+            font-weight: 600;
+        }
     }
 }

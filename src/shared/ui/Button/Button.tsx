@@ -1,6 +1,7 @@
-
 import * as React from "react";
-import { clsx } from "../../shared/utils/clsx";
+
+import { clsx } from "@src/shared/utils/clsx";
+
 import styles from "./Button.module.scss";
 
 /**
@@ -72,9 +73,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           `${styles.uiButton}__${variant}`,
           `${styles.uiButton}__${size}`,
           {
-            [`disabled`]:  disabled,
-            [`loading`]:  loading,
-            [`full`]:     fullWidth,
+            [`disabled`]: disabled,
+            [`loading`]: loading,
+            [`full`]: fullWidth,
           },
           className,
         )}
